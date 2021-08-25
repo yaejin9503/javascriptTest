@@ -11,7 +11,6 @@
 
 function solution(str){  
     let answer = ''; 
-    let count = 1; 
     let textArray = [];
     let numArray = [];  
 
@@ -47,13 +46,25 @@ let str = 'KKHSSSSSSSE';
 
 console.log(solution(str)); 
 
-//해설 
+//해설
 
 function answer(str){ 
     let result = ''; 
 
+    let cnt =1; 
+    for(let i=0; i<=str.length -1; i++){ 
+        if(str[i] === str[i+1]) cnt++; 
+        else{
+            if(cnt !== 1){ 
+                result += str[i] + cnt; 
+            }else result += str[i];
+            cnt = 1;
+        }  
+    }
     return result; 
 }
+
+console.log(answer(str));
 
 
 

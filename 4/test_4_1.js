@@ -23,17 +23,17 @@ function solution(arr){
         let one = Math.floor(x%10); //일의 자리
 
         let sum = hundred + ten + one;
-        if(max <= sum){
+        if(max < sum){
             max = sum;
-            maxNumber = x;          
-        } 
+            answer = x;          
+        }else if (sum === max){ 
+            if(x > answer) answer = x; 
+        }
     }
-
-    console.log(max, maxNumber); 
 
     return answer; 
 }
 
 let arr = [ 128, 460, 603, 40, 521, 137, 123];
-console.log(solution(arr))
+console.log(solution(arr)); 
 
