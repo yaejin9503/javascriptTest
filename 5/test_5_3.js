@@ -21,11 +21,22 @@
  * 3
  */
 
-function mySolution(){ 
-    let answer; 
+function mySolution(arr, num){ 
+    let answer = 0; 
+    
+    //num === 6
+    for(let i=0; i<arr.length;i++){ 
+        let sum = arr[i]; 
+        for(let j=i+1;j<arr.length; j++){ 
+            sum += arr[j]; 
+            if(num < sum) break; 
+            else if(num === sum) answer++; 
+        }
+    }
     
     return answer; 
 }
 
 let arr = [1, 2, 1, 3, 1, 1, 1, 2]; 
+console.log(mySolution(arr, 6))
 
