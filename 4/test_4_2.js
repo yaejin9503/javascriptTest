@@ -25,15 +25,14 @@ function solution(arr){
 
     for(let x of array){ 
         x = parseInt(x); 
-        if(x === 2 || isPrime(x)){
-            if(x !== 1) answer.push(x); 
-        } 
+        if(isPrime(x)) answer.push(x);
     }
     return answer; 
 }
 
 function isPrime(num){ 
     let result = true; 
+    if(num === 1) return false; 
     for(let j=2; j<num; j++ ){ 
         if(num%j === 0){
             result = false; 
@@ -45,3 +44,14 @@ function isPrime(num){
 let arr = [32, 55, 62, 20, 250, 370, 200, 30, 100];
 
 console.log(solution(arr)); 
+
+
+function answer(arr){ 
+    let result = []; 
+    for(let x of arr){ 
+        let res = Number(x.toString().split("").reverse().join("")); 
+        if(isPrime(res)) result.push(res); 
+    }
+    return result; 
+}
+
