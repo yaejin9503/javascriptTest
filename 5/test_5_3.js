@@ -23,7 +23,6 @@
 
 function mySolution(arr, num){ 
     let answer = 0; 
-    
     //num === 6
     for(let i=0; i<arr.length;i++){ 
         let sum = arr[i]; 
@@ -38,5 +37,22 @@ function mySolution(arr, num){
 }
 
 let arr = [1, 2, 1, 3, 1, 1, 1, 2]; 
-console.log(mySolution(arr, 6))
+// console.log(mySolution(arr, 6))
 
+//투포인트 알고리즘 
+solution(6, arr); 
+
+
+function solution(m, arr){
+    let answer=0, lt=0, sum=0;
+    for(let rt=0; rt<arr.length; rt++){
+        sum+=arr[rt];
+        if(sum===m) answer++;
+        while(sum>=m){
+            sum-=arr[lt++];
+            console.log(sum, rt, lt); 
+            if(sum===m) answer++;       
+        }
+    }        
+    return answer;
+}
